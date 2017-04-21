@@ -1,0 +1,3607 @@
+<html lang="en"><head>
+    <title>Code coverage report for node-npmtest-angular-in-memory-web-api/node_modules/angular-in-memory-web-api/bundles/in-memory-web-api.umd.js</title>
+    <meta charset="utf-8">
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            height: 160px;
+            padding: 0 1em 0 1em;
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 170px;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { color: #000; }
+        div.coverage-summary a:visited { color: #333; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1 style="font-weight: bold;">
+        <a href="https://github.com/npmtest/node-npmtest-angular-in-memory-web-api">npmtest-angular-in-memory-web-api (v0.0.1)</a>
+    </h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-angular-in-memory-web-api/node_modules/angular-in-memory-web-api/bundles/in-memory-web-api.umd.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">4.71% <small>(14 / 297)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">2.31% <small>(3 / 130)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">1.85% <small>(1 / 54)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">4.84% <small>(14 / 289)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> » <a href="index.html">node-npmtest-angular-in-memory-web-api/node_modules/angular-in-memory-web-api/bundles/</a> » in-memory-web-api.umd.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tbody><tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801
+802
+803
+804
+805
+806
+807
+808
+809
+810
+811
+812
+813
+814
+815
+816
+817
+818
+819
+820
+821
+822
+823
+824
+825
+826
+827
+828
+829
+830
+831
+832
+833
+834
+835
+836
+837
+838
+839
+840
+841
+842
+843
+844
+845
+846
+847
+848
+849
+850
+851
+852
+853
+854
+855
+856
+857
+858
+859
+860
+861
+862
+863
+864
+865
+866
+867
+868
+869
+870
+871
+872
+873
+874
+875
+876
+877
+878
+879
+880
+881
+882
+883
+884
+885
+886
+887
+888
+889
+890
+891
+892
+893
+894
+895
+896
+897
+898
+899
+900
+901
+902
+903
+904
+905
+906
+907
+908
+909
+910
+911
+912
+913
+914
+915
+916
+917
+918
+919
+920
+921
+922
+923
+924
+925
+926
+927
+928
+929
+930
+931
+932
+933
+934
+935
+936
+937
+938
+939
+940
+941
+942
+943
+944
+945
+946
+947
+948
+949
+950
+951
+952
+953
+954
+955
+956
+957
+958
+959
+960
+961
+962
+963
+964
+965
+966
+967
+968
+969
+970
+971
+972
+973
+974
+975
+976
+977
+978
+979
+980
+981
+982
+983
+984
+985
+986
+987
+988
+989
+990
+991
+992
+993
+994
+995
+996
+997
+998
+999
+1000
+1001
+1002
+1003
+1004
+1005
+1006
+1007
+1008
+1009
+1010
+1011
+1012
+1013
+1014
+1015
+1016
+1017
+1018
+1019
+1020
+1021
+1022
+1023
+1024
+1025
+1026
+1027
+1028
+1029
+1030
+1031
+1032
+1033
+1034
+1035
+1036
+1037
+1038
+1039
+1040
+1041
+1042
+1043
+1044
+1045
+1046
+1047
+1048
+1049
+1050
+1051
+1052
+1053
+1054
+1055
+1056
+1057
+1058
+1059
+1060
+1061
+1062
+1063
+1064
+1065
+1066
+1067
+1068
+1069
+1070
+1071
+1072
+1073
+1074
+1075
+1076
+1077
+1078
+1079
+1080
+1081
+1082
+1083
+1084
+1085
+1086
+1087
+1088
+1089
+1090
+1091
+1092
+1093
+1094
+1095
+1096
+1097
+1098
+1099
+1100
+1101
+1102
+1103
+1104
+1105
+1106
+1107
+1108
+1109
+1110
+1111
+1112
+1113
+1114
+1115
+1116
+1117
+1118
+1119
+1120
+1121
+1122
+1123
+1124
+1125
+1126
+1127
+1128
+1129</td><td class="line-coverage"><span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function (global, factory) {
+    typeof exports === 'object' &amp;&amp; typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/http'), require('rxjs/Observable'), require('rxjs/add/operator/delay')) :
+<span class="branch-1 cbranch-no" title="branch not covered">    typeof define === 'function' &amp;&amp; define.amd ? define(['exports', '@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/operator/delay'], factory) :</span>
+    (factory((global.ng = global.ng || {}, global.ng.inMemoryWebApi = global.ng.inMemoryWebApi || {}),global.ng.core,global.ng.http,global.Rx,global.Rx));
+}(this, (<span class="fstat-no" title="function not covered">function (exports,_angular_core,_angular_http,rxjs_Observable,rxjs_add_operator_delay) {</span> 'use strict';
+&nbsp;
+<span class="cstat-no" title="statement not covered">var STATUS = {</span>
+    CONTINUE: 100,
+    SWITCHING_PROTOCOLS: 101,
+    OK: 200,
+    CREATED: 201,
+    ACCEPTED: 202,
+    NON_AUTHORITATIVE_INFORMATION: 203,
+    NO_CONTENT: 204,
+    RESET_CONTENT: 205,
+    PARTIAL_CONTENT: 206,
+    MULTIPLE_CHOICES: 300,
+    MOVED_PERMANTENTLY: 301,
+    FOUND: 302,
+    SEE_OTHER: 303,
+    NOT_MODIFIED: 304,
+    USE_PROXY: 305,
+    TEMPORARY_REDIRECT: 307,
+    BAD_REQUEST: 400,
+    UNAUTHORIZED: 401,
+    PAYMENT_REQUIRED: 402,
+    FORBIDDEN: 403,
+    NOT_FOUND: 404,
+    METHOD_NOT_ALLOWED: 405,
+    NOT_ACCEPTABLE: 406,
+    PROXY_AUTHENTICATION_REQUIRED: 407,
+    REQUEST_TIMEOUT: 408,
+    CONFLICT: 409,
+    GONE: 410,
+    LENGTH_REQUIRED: 411,
+    PRECONDITION_FAILED: 412,
+    PAYLOAD_TO_LARGE: 413,
+    URI_TOO_LONG: 414,
+    UNSUPPORTED_MEDIA_TYPE: 415,
+    RANGE_NOT_SATISFIABLE: 416,
+    EXPECTATION_FAILED: 417,
+    IM_A_TEAPOT: 418,
+    UPGRADE_REQUIRED: 426,
+    INTERNAL_SERVER_ERROR: 500,
+    NOT_IMPLEMENTED: 501,
+    BAD_GATEWAY: 502,
+    SERVICE_UNAVAILABLE: 503,
+    GATEWAY_TIMEOUT: 504,
+    HTTP_VERSION_NOT_SUPPORTED: 505,
+    PROCESSING: 102,
+    MULTI_STATUS: 207,
+    IM_USED: 226,
+    PERMANENT_REDIRECT: 308,
+    UNPROCESSABLE_ENTRY: 422,
+    LOCKED: 423,
+    FAILED_DEPENDENCY: 424,
+    PRECONDITION_REQUIRED: 428,
+    TOO_MANY_REQUESTS: 429,
+    REQUEST_HEADER_FIELDS_TOO_LARGE: 431,
+    UNAVAILABLE_FOR_LEGAL_REASONS: 451,
+    VARIANT_ALSO_NEGOTIATES: 506,
+    INSUFFICIENT_STORAGE: 507,
+    NETWORK_AUTHENTICATION_REQUIRED: 511
+};
+/*tslint:disable:quotemark max-line-length one-line */
+<span class="cstat-no" title="statement not covered">var STATUS_CODE_INFO = {</span>
+    '100': {
+        'code': 100,
+        'text': 'Continue',
+        'description': '\"The initial part of a request has been received and has not yet been rejected by the server.\"',
+        'spec_title': 'RFC7231#6.2.1',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.2.1'
+    },
+    '101': {
+        'code': 101,
+        'text': 'Switching Protocols',
+        'description': '\"The server understands and is willing to comply with the client\'s request, via the Upgrade header field, for a change in the application protocol being used on this connection.\"',
+        'spec_title': 'RFC7231#6.2.2',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.2.2'
+    },
+    '200': {
+        'code': 200,
+        'text': 'OK',
+        'description': '\"The request has succeeded.\"',
+        'spec_title': 'RFC7231#6.3.1',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.3.1'
+    },
+    '201': {
+        'code': 201,
+        'text': 'Created',
+        'description': '\"The request has been fulfilled and has resulted in one or more new resources being created.\"',
+        'spec_title': 'RFC7231#6.3.2',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.3.2'
+    },
+    '202': {
+        'code': 202,
+        'text': 'Accepted',
+        'description': '\"The request has been accepted for processing, but the processing has not been completed.\"',
+        'spec_title': 'RFC7231#6.3.3',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.3.3'
+    },
+    '203': {
+        'code': 203,
+        'text': 'Non-Authoritative Information',
+        'description': '\"The request was successful but the enclosed payload has been modified from that of the origin server\'s 200 (OK) response by a transforming proxy.\"',
+        'spec_title': 'RFC7231#6.3.4',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.3.4'
+    },
+    '204': {
+        'code': 204,
+        'text': 'No Content',
+        'description': '\"The server has successfully fulfilled the request and that there is no additional content to send in the response payload body.\"',
+        'spec_title': 'RFC7231#6.3.5',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.3.5'
+    },
+    '205': {
+        'code': 205,
+        'text': 'Reset Content',
+        'description': '\"The server has fulfilled the request and desires that the user agent reset the \"document view\", which caused the request to be sent, to its original state as received from the origin server.\"',
+        'spec_title': 'RFC7231#6.3.6',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.3.6'
+    },
+    '206': {
+        'code': 206,
+        'text': 'Partial Content',
+        'description': '\"The server is successfully fulfilling a range request for the target resource by transferring one or more parts of the selected representation that correspond to the satisfiable ranges found in the requests\'s Range header field.\"',
+        'spec_title': 'RFC7233#4.1',
+        'spec_href': 'http://tools.ietf.org/html/rfc7233#section-4.1'
+    },
+    '300': {
+        'code': 300,
+        'text': 'Multiple Choices',
+        'description': '\"The target resource has more than one representation, each with its own more specific identifier, and information about the alternatives is being provided so that the user (or user agent) can select a preferred representation by redirecting its request to one or more of those identifiers.\"',
+        'spec_title': 'RFC7231#6.4.1',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.4.1'
+    },
+    '301': {
+        'code': 301,
+        'text': 'Moved Permanently',
+        'description': '\"The target resource has been assigned a new permanent URI and any future references to this resource ought to use one of the enclosed URIs.\"',
+        'spec_title': 'RFC7231#6.4.2',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.4.2'
+    },
+    '302': {
+        'code': 302,
+        'text': 'Found',
+        'description': '\"The target resource resides temporarily under a different URI.\"',
+        'spec_title': 'RFC7231#6.4.3',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.4.3'
+    },
+    '303': {
+        'code': 303,
+        'text': 'See Other',
+        'description': '\"The server is redirecting the user agent to a different resource, as indicated by a URI in the Location header field, that is intended to provide an indirect response to the original request.\"',
+        'spec_title': 'RFC7231#6.4.4',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.4.4'
+    },
+    '304': {
+        'code': 304,
+        'text': 'Not Modified',
+        'description': '\"A conditional GET request has been received and would have resulted in a 200 (OK) response if it were not for the fact that the condition has evaluated to false.\"',
+        'spec_title': 'RFC7232#4.1',
+        'spec_href': 'http://tools.ietf.org/html/rfc7232#section-4.1'
+    },
+    '305': {
+        'code': 305,
+        'text': 'Use Proxy',
+        'description': '*deprecated*',
+        'spec_title': 'RFC7231#6.4.5',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.4.5'
+    },
+    '307': {
+        'code': 307,
+        'text': 'Temporary Redirect',
+        'description': '\"The target resource resides temporarily under a different URI and the user agent MUST NOT change the request method if it performs an automatic redirection to that URI.\"',
+        'spec_title': 'RFC7231#6.4.7',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.4.7'
+    },
+    '400': {
+        'code': 400,
+        'text': 'Bad Request',
+        'description': '\"The server cannot or will not process the request because the received syntax is invalid, nonsensical, or exceeds some limitation on what the server is willing to process.\"',
+        'spec_title': 'RFC7231#6.5.1',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.5.1'
+    },
+    '401': {
+        'code': 401,
+        'text': 'Unauthorized',
+        'description': '\"The request has not been applied because it lacks valid authentication credentials for the target resource.\"',
+        'spec_title': 'RFC7235#6.3.1',
+        'spec_href': 'http://tools.ietf.org/html/rfc7235#section-3.1'
+    },
+    '402': {
+        'code': 402,
+        'text': 'Payment Required',
+        'description': '*reserved*',
+        'spec_title': 'RFC7231#6.5.2',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.5.2'
+    },
+    '403': {
+        'code': 403,
+        'text': 'Forbidden',
+        'description': '\"The server understood the request but refuses to authorize it.\"',
+        'spec_title': 'RFC7231#6.5.3',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.5.3'
+    },
+    '404': {
+        'code': 404,
+        'text': 'Not Found',
+        'description': '\"The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.\"',
+        'spec_title': 'RFC7231#6.5.4',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.5.4'
+    },
+    '405': {
+        'code': 405,
+        'text': 'Method Not Allowed',
+        'description': '\"The method specified in the request-line is known by the origin server but not supported by the target resource.\"',
+        'spec_title': 'RFC7231#6.5.5',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.5.5'
+    },
+    '406': {
+        'code': 406,
+        'text': 'Not Acceptable',
+        'description': '\"The target resource does not have a current representation that would be acceptable to the user agent, according to the proactive negotiation header fields received in the request, and the server is unwilling to supply a default representation.\"',
+        'spec_title': 'RFC7231#6.5.6',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.5.6'
+    },
+    '407': {
+        'code': 407,
+        'text': 'Proxy Authentication Required',
+        'description': '\"The client needs to authenticate itself in order to use a proxy.\"',
+        'spec_title': 'RFC7231#6.3.2',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.3.2'
+    },
+    '408': {
+        'code': 408,
+        'text': 'Request Timeout',
+        'description': '\"The server did not receive a complete request message within the time that it was prepared to wait.\"',
+        'spec_title': 'RFC7231#6.5.7',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.5.7'
+    },
+    '409': {
+        'code': 409,
+        'text': 'Conflict',
+        'description': '\"The request could not be completed due to a conflict with the current state of the resource.\"',
+        'spec_title': 'RFC7231#6.5.8',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.5.8'
+    },
+    '410': {
+        'code': 410,
+        'text': 'Gone',
+        'description': '\"Access to the target resource is no longer available at the origin server and that this condition is likely to be permanent.\"',
+        'spec_title': 'RFC7231#6.5.9',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.5.9'
+    },
+    '411': {
+        'code': 411,
+        'text': 'Length Required',
+        'description': '\"The server refuses to accept the request without a defined Content-Length.\"',
+        'spec_title': 'RFC7231#6.5.10',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.5.10'
+    },
+    '412': {
+        'code': 412,
+        'text': 'Precondition Failed',
+        'description': '\"One or more preconditions given in the request header fields evaluated to false when tested on the server.\"',
+        'spec_title': 'RFC7232#4.2',
+        'spec_href': 'http://tools.ietf.org/html/rfc7232#section-4.2'
+    },
+    '413': {
+        'code': 413,
+        'text': 'Payload Too Large',
+        'description': '\"The server is refusing to process a request because the request payload is larger than the server is willing or able to process.\"',
+        'spec_title': 'RFC7231#6.5.11',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.5.11'
+    },
+    '414': {
+        'code': 414,
+        'text': 'URI Too Long',
+        'description': '\"The server is refusing to service the request because the request-target is longer than the server is willing to interpret.\"',
+        'spec_title': 'RFC7231#6.5.12',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.5.12'
+    },
+    '415': {
+        'code': 415,
+        'text': 'Unsupported Media Type',
+        'description': '\"The origin server is refusing to service the request because the payload is in a format not supported by the target resource for this method.\"',
+        'spec_title': 'RFC7231#6.5.13',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.5.13'
+    },
+    '416': {
+        'code': 416,
+        'text': 'Range Not Satisfiable',
+        'description': '\"None of the ranges in the request\'s Range header field overlap the current extent of the selected resource or that the set of ranges requested has been rejected due to invalid ranges or an excessive request of small or overlapping ranges.\"',
+        'spec_title': 'RFC7233#4.4',
+        'spec_href': 'http://tools.ietf.org/html/rfc7233#section-4.4'
+    },
+    '417': {
+        'code': 417,
+        'text': 'Expectation Failed',
+        'description': '\"The expectation given in the request\'s Expect header field could not be met by at least one of the inbound servers.\"',
+        'spec_title': 'RFC7231#6.5.14',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.5.14'
+    },
+    '418': {
+        'code': 418,
+        'text': 'I\'m a teapot',
+        'description': '\"1988 April Fools Joke. Returned by tea pots requested to brew coffee.\"',
+        'spec_title': 'RFC 2324',
+        'spec_href': 'https://tools.ietf.org/html/rfc2324'
+    },
+    '426': {
+        'code': 426,
+        'text': 'Upgrade Required',
+        'description': '\"The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol.\"',
+        'spec_title': 'RFC7231#6.5.15',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.5.15'
+    },
+    '500': {
+        'code': 500,
+        'text': 'Internal Server Error',
+        'description': '\"The server encountered an unexpected condition that prevented it from fulfilling the request.\"',
+        'spec_title': 'RFC7231#6.6.1',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.6.1'
+    },
+    '501': {
+        'code': 501,
+        'text': 'Not Implemented',
+        'description': '\"The server does not support the functionality required to fulfill the request.\"',
+        'spec_title': 'RFC7231#6.6.2',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.6.2'
+    },
+    '502': {
+        'code': 502,
+        'text': 'Bad Gateway',
+        'description': '\"The server, while acting as a gateway or proxy, received an invalid response from an inbound server it accessed while attempting to fulfill the request.\"',
+        'spec_title': 'RFC7231#6.6.3',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.6.3'
+    },
+    '503': {
+        'code': 503,
+        'text': 'Service Unavailable',
+        'description': '\"The server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay.\"',
+        'spec_title': 'RFC7231#6.6.4',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.6.4'
+    },
+    '504': {
+        'code': 504,
+        'text': 'Gateway Time-out',
+        'description': '\"The server, while acting as a gateway or proxy, did not receive a timely response from an upstream server it needed to access in order to complete the request.\"',
+        'spec_title': 'RFC7231#6.6.5',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.6.5'
+    },
+    '505': {
+        'code': 505,
+        'text': 'HTTP Version Not Supported',
+        'description': '\"The server does not support, or refuses to support, the protocol version that was used in the request message.\"',
+        'spec_title': 'RFC7231#6.6.6',
+        'spec_href': 'http://tools.ietf.org/html/rfc7231#section-6.6.6'
+    },
+    '102': {
+        'code': 102,
+        'text': 'Processing',
+        'description': '\"An interim response to inform the client that the server has accepted the complete request, but has not yet completed it.\"',
+        'spec_title': 'RFC5218#10.1',
+        'spec_href': 'http://tools.ietf.org/html/rfc2518#section-10.1'
+    },
+    '207': {
+        'code': 207,
+        'text': 'Multi-Status',
+        'description': '\"Status for multiple independent operations.\"',
+        'spec_title': 'RFC5218#10.2',
+        'spec_href': 'http://tools.ietf.org/html/rfc2518#section-10.2'
+    },
+    '226': {
+        'code': 226,
+        'text': 'IM Used',
+        'description': '\"The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance.\"',
+        'spec_title': 'RFC3229#10.4.1',
+        'spec_href': 'http://tools.ietf.org/html/rfc3229#section-10.4.1'
+    },
+    '308': {
+        'code': 308,
+        'text': 'Permanent Redirect',
+        'description': '\"The target resource has been assigned a new permanent URI and any future references to this resource SHOULD use one of the returned URIs. [...] This status code is similar to 301 Moved Permanently (Section 7.3.2 of rfc7231), except that it does not allow rewriting the request method from POST to GET.\"',
+        'spec_title': 'RFC7238',
+        'spec_href': 'http://tools.ietf.org/html/rfc7238'
+    },
+    '422': {
+        'code': 422,
+        'text': 'Unprocessable Entity',
+        'description': '\"The server understands the content type of the request entity (hence a 415(Unsupported Media Type) status code is inappropriate), and the syntax of the request entity is correct (thus a 400 (Bad Request) status code is inappropriate) but was unable to process the contained instructions.\"',
+        'spec_title': 'RFC5218#10.3',
+        'spec_href': 'http://tools.ietf.org/html/rfc2518#section-10.3'
+    },
+    '423': {
+        'code': 423,
+        'text': 'Locked',
+        'description': '\"The source or destination resource of a method is locked.\"',
+        'spec_title': 'RFC5218#10.4',
+        'spec_href': 'http://tools.ietf.org/html/rfc2518#section-10.4'
+    },
+    '424': {
+        'code': 424,
+        'text': 'Failed Dependency',
+        'description': '\"The method could not be performed on the resource because the requested action depended on another action and that action failed.\"',
+        'spec_title': 'RFC5218#10.5',
+        'spec_href': 'http://tools.ietf.org/html/rfc2518#section-10.5'
+    },
+    '428': {
+        'code': 428,
+        'text': 'Precondition Required',
+        'description': '\"The origin server requires the request to be conditional.\"',
+        'spec_title': 'RFC6585#3',
+        'spec_href': 'http://tools.ietf.org/html/rfc6585#section-3'
+    },
+    '429': {
+        'code': 429,
+        'text': 'Too Many Requests',
+        'description': '\"The user has sent too many requests in a given amount of time (\"rate limiting\").\"',
+        'spec_title': 'RFC6585#4',
+        'spec_href': 'http://tools.ietf.org/html/rfc6585#section-4'
+    },
+    '431': {
+        'code': 431,
+        'text': 'Request Header Fields Too Large',
+        'description': '\"The server is unwilling to process the request because its header fields are too large.\"',
+        'spec_title': 'RFC6585#5',
+        'spec_href': 'http://tools.ietf.org/html/rfc6585#section-5'
+    },
+    '451': {
+        'code': 451,
+        'text': 'Unavailable For Legal Reasons',
+        'description': '\"The server is denying access to the resource in response to a legal demand.\"',
+        'spec_title': 'draft-ietf-httpbis-legally-restricted-status',
+        'spec_href': 'http://tools.ietf.org/html/draft-ietf-httpbis-legally-restricted-status'
+    },
+    '506': {
+        'code': 506,
+        'text': 'Variant Also Negotiates',
+        'description': '\"The server has an internal configuration error: the chosen variant resource is configured to engage in transparent content negotiation itself, and is therefore not a proper end point in the negotiation process.\"',
+        'spec_title': 'RFC2295#8.1',
+        'spec_href': 'http://tools.ietf.org/html/rfc2295#section-8.1'
+    },
+    '507': {
+        'code': 507,
+        'text': 'Insufficient Storage',
+        'description': '\The method could not be performed on the resource because the server is unable to store the representation needed to successfully complete the request.\"',
+        'spec_title': 'RFC5218#10.6',
+        'spec_href': 'http://tools.ietf.org/html/rfc2518#section-10.6'
+    },
+    '511': {
+        'code': 511,
+        'text': 'Network Authentication Required',
+        'description': '\"The client needs to authenticate to gain network access.\"',
+        'spec_title': 'RFC6585#6',
+        'spec_href': 'http://tools.ietf.org/html/rfc6585#section-6'
+    }
+};
+&nbsp;
+////////////  HELPERS ///////////
+/**
+ * Create an error Response from an HTTP status code and error message
+ */
+<span class="fstat-no" title="function not covered">function createErrorResponse(req, status, message) {</span>
+<span class="cstat-no" title="statement not covered">    return new _angular_http.ResponseOptions({</span>
+        body: { 'error': "" + message },
+        url: req.url,
+        headers: new _angular_http.Headers({ 'Content-Type': 'application/json' }),
+        status: status
+    });
+}
+/**
+ * Create an Observable response from response options.
+ */
+<span class="fstat-no" title="function not covered">function createObservableResponse(req, resOptions) {</span>
+<span class="cstat-no" title="statement not covered">    return new rxjs_Observable.Observable(<span class="fstat-no" title="function not covered">function (responseObserver) {</span></span>
+<span class="cstat-no" title="statement not covered">        emitResponse(responseObserver, req, resOptions);</span>
+<span class="cstat-no" title="statement not covered">        return <span class="fstat-no" title="function not covered">function () {</span> }; </span>// unsubscribe function
+    });
+}
+/**
+ * Create a response from response options
+ * and tell "ResponseObserver" (an `Observer&lt;Response&gt;`) to emit it.
+ * The observer's observable is either completed or in error state after call.
+ */
+<span class="fstat-no" title="function not covered">function emitResponse(responseObserver, req, resOptions) {</span>
+<span class="cstat-no" title="statement not covered">    resOptions.url = resOptions.url || req.url; </span>// make sure url is set
+<span class="cstat-no" title="statement not covered">    resOptions = setStatusText(resOptions);</span>
+<span class="cstat-no" title="statement not covered">    var res = new _angular_http.Response(resOptions);</span>
+<span class="cstat-no" title="statement not covered">    if (isSuccess(res.status)) {</span>
+<span class="cstat-no" title="statement not covered">        responseObserver.next(res);</span>
+<span class="cstat-no" title="statement not covered">        responseObserver.complete();</span>
+    }
+    else {
+<span class="cstat-no" title="statement not covered">        responseObserver.error(res);</span>
+    }
+}
+/**
+* Interface for a class that creates an in-memory database
+*
+* Its `createDb` method creates a hash of named collections that represents the database
+*
+* For maximum flexibility, the service may define HTTP method overrides.
+* Such methods must match the spelling of an HTTP method in lower case (e.g, "get").
+* If a request has a matching method, it will be called as in
+* `get(info: requestInfo, db: {})` where `db` is the database object described above.
+*/
+<span class="cstat-no" title="statement not covered">var InMemoryDbService = (<span class="fstat-no" title="function not covered">function () {</span></span>
+<span class="fstat-no" title="function not covered">    function InMemoryDbService() {</span>
+    }
+<span class="cstat-no" title="statement not covered">    return InMemoryDbService;</span>
+}());
+/**
+* Interface for InMemoryBackend configuration options
+*/
+<span class="cstat-no" title="statement not covered">var InMemoryBackendConfigArgs = (<span class="fstat-no" title="function not covered">function () {</span></span>
+<span class="fstat-no" title="function not covered">    function InMemoryBackendConfigArgs() {</span>
+    }
+<span class="cstat-no" title="statement not covered">    return InMemoryBackendConfigArgs;</span>
+}());
+<span class="fstat-no" title="function not covered">function removeTrailingSlash(path) {</span>
+<span class="cstat-no" title="statement not covered">    return path.replace(/\/$/, '');</span>
+}
+/////////////////////////////////
+/**
+*  InMemoryBackendService configuration options
+*  Usage:
+*    InMemoryWebApiModule.forRoot(InMemHeroService, {delay: 600})
+*
+*  or if providing separately:
+*    provide(InMemoryBackendConfig, {useValue: {delay: 600}}),
+*/
+<span class="cstat-no" title="statement not covered">var InMemoryBackendConfig = (<span class="fstat-no" title="function not covered">function () {</span></span>
+<span class="fstat-no" title="function not covered">    function InMemoryBackendConfig(config) {</span>
+<span class="cstat-no" title="statement not covered">        if (config === void 0) { <span class="cstat-no" title="statement not covered">config = {}; </span>}</span>
+<span class="cstat-no" title="statement not covered">        Object.assign(this, {</span>
+            // default config:
+            caseSensitiveSearch: false,
+            defaultResponseOptions: new _angular_http.BaseResponseOptions(),
+            delay: 500,
+            delete404: false,
+            passThruUnknownUrl: false,
+            post204: true,
+            put204: true,
+            apiBase: undefined,
+            host: undefined,
+            rootPath: undefined // default value is actually set in InMemoryBackendService ctor
+        }, config);
+    }
+<span class="cstat-no" title="statement not covered">    InMemoryBackendConfig.decorators = [</span>
+        { type: _angular_core.Injectable },
+    ];
+    /** @nocollapse */
+<span class="cstat-no" title="statement not covered">    InMemoryBackendConfig.ctorParameters = <span class="fstat-no" title="function not covered">function () {</span> <span class="cstat-no" title="statement not covered">return [</span></span>
+        { type: InMemoryBackendConfigArgs, },
+    ]; };
+<span class="cstat-no" title="statement not covered">    return InMemoryBackendConfig;</span>
+}());
+/**
+ * Returns true if the the Http Status Code is 200-299 (success)
+ */
+<span class="fstat-no" title="function not covered">function isSuccess(status) {</span> <span class="cstat-no" title="statement not covered">return status &gt;= 200 &amp;&amp; status &lt; 300; </span>}
+&nbsp;
+/**
+ * Set the status text in a response:
+ */
+<span class="fstat-no" title="function not covered">function setStatusText(options) {</span>
+<span class="cstat-no" title="statement not covered">    try {</span>
+<span class="cstat-no" title="statement not covered">        var statusCode = STATUS_CODE_INFO[options.status];</span>
+<span class="cstat-no" title="statement not covered">        options['statusText'] = statusCode ? statusCode.text : 'Unknown Status';</span>
+<span class="cstat-no" title="statement not covered">        return options;</span>
+    }
+    catch (err) {
+<span class="cstat-no" title="statement not covered">        return new _angular_http.ResponseOptions({</span>
+            status: STATUS.INTERNAL_SERVER_ERROR,
+            statusText: 'Invalid Server Operation'
+        });
+    }
+}
+////////////  InMemoryBackendService ///////////
+/**
+ * Simulate the behavior of a RESTy web api
+ * backed by the simple in-memory data store provided by the injected InMemoryDataService service.
+ * Conforms mostly to behavior described here:
+ * http://www.restapitutorial.com/lessons/httpmethods.html
+ *
+ * ### Usage
+ *
+ * Create `InMemoryDataService` class that implements `InMemoryDataService`.
+ * Call `forRoot` static method with this service class and optional configuration object:
+ * ```
+ * // other imports
+ * import { HttpModule }           from '@angular/http';
+ * import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+ *
+ * import { InMemHeroService, inMemConfig } from '../api/in-memory-hero.service';
+ * @NgModule({
+ *  imports: [
+ *    HttpModule,
+ *    InMemoryWebApiModule.forRoot(InMemHeroService, inMemConfig),
+ *    ...
+ *  ],
+ *  ...
+ * })
+ * export class AppModule { ... }
+ * ```
+ */
+<span class="cstat-no" title="statement not covered">var InMemoryBackendService = (<span class="fstat-no" title="function not covered">function () {</span></span>
+<span class="fstat-no" title="function not covered">    function InMemoryBackendService(injector, inMemDbService, config) {</span>
+<span class="cstat-no" title="statement not covered">        this.injector = injector;</span>
+<span class="cstat-no" title="statement not covered">        this.inMemDbService = inMemDbService;</span>
+<span class="cstat-no" title="statement not covered">        this.config = new InMemoryBackendConfig();</span>
+<span class="cstat-no" title="statement not covered">        this.resetDb();</span>
+<span class="cstat-no" title="statement not covered">        var loc = this.getLocation('/');</span>
+<span class="cstat-no" title="statement not covered">        this.config.host = loc.host; </span>// default to app web server host
+<span class="cstat-no" title="statement not covered">        this.config.rootPath = loc.pathname; </span>// default to path when app is served (e.g.'/')
+<span class="cstat-no" title="statement not covered">        Object.assign(this.config, config || {});</span>
+<span class="cstat-no" title="statement not covered">        this.setPassThruBackend();</span>
+    }
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.createConnection = <span class="fstat-no" title="function not covered">function (req) {</span></span>
+<span class="cstat-no" title="statement not covered">        var response;</span>
+<span class="cstat-no" title="statement not covered">        try {</span>
+<span class="cstat-no" title="statement not covered">            response = this.handleRequest(req);</span>
+        }
+        catch (error) {
+<span class="cstat-no" title="statement not covered">            var err = error.message || error;</span>
+<span class="cstat-no" title="statement not covered">            var options = createErrorResponse(req, STATUS.INTERNAL_SERVER_ERROR, "" + err);</span>
+<span class="cstat-no" title="statement not covered">            response = this.addDelay(createObservableResponse(req, options));</span>
+        }
+<span class="cstat-no" title="statement not covered">        return {</span>
+            readyState: _angular_http.ReadyState.Done,
+            request: req,
+            response: response
+        };
+    };
+    ////  protected /////
+    /**
+     * Process Request and return an Observable of Http Response object
+     * in the manner of a RESTy web api.
+     *
+     * Expect URI pattern in the form :base/:collectionName/:id?
+     * Examples:
+     *   // for store with a 'customers' collection
+     *   GET api/customers          // all customers
+     *   GET api/customers/42       // the character with id=42
+     *   GET api/customers?name=^j  // 'j' is a regex; returns customers whose name starts with 'j' or 'J'
+     *   GET api/customers.json/42  // ignores the ".json"
+     *
+     * Also accepts direct commands to the service in which the last segment of the apiBase is the word "commands"
+     * Examples:
+     *     POST commands/resetDb,
+     *     GET/POST commands/config - get or (re)set the config
+     *
+     *   HTTP overrides:
+     *     If the injected inMemDbService defines an HTTP method (lowercase)
+     *     The request is forwarded to that method as in
+     *     `inMemDbService.get(httpMethodInterceptorArgs)`
+     *     which must return an `Observable&lt;Response&gt;`
+     */
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.handleRequest = <span class="fstat-no" title="function not covered">function (req) {</span></span>
+<span class="cstat-no" title="statement not covered">        var parsed = this.inMemDbService['parseUrl'] ?</span>
+            // parse with override method
+            this.inMemDbService['parseUrl'](req.url) :
+            // parse with default url parser
+            this.parseUrl(req.url);
+<span class="cstat-no" title="statement not covered">        var base = parsed.base, collectionName = parsed.collectionName, id = parsed.id, query = parsed.query, resourceUrl = parsed.resourceUrl;</span>
+<span class="cstat-no" title="statement not covered">        var collection = this.db[collectionName];</span>
+<span class="cstat-no" title="statement not covered">        var reqInfo = {</span>
+            req: req,
+            base: base,
+            collection: collection,
+            collectionName: collectionName,
+            headers: new _angular_http.Headers({ 'Content-Type': 'application/json' }),
+            id: this.parseId(collection, id),
+            query: query,
+            resourceUrl: resourceUrl
+        };
+<span class="cstat-no" title="statement not covered">        var reqMethodName = _angular_http.RequestMethod[req.method || 0].toLowerCase();</span>
+<span class="cstat-no" title="statement not covered">        var resOptions;</span>
+<span class="cstat-no" title="statement not covered">        if (/commands\/$/i.test(reqInfo.base)) {</span>
+<span class="cstat-no" title="statement not covered">            return this.commands(reqInfo);</span>
+        }
+        else <span class="cstat-no" title="statement not covered">if (this.inMemDbService[reqMethodName]) {</span>
+            // InMemoryDbService has an overriding interceptor for this HTTP method; call it
+            // The interceptor result must be an Observable&lt;Response&gt;
+<span class="cstat-no" title="statement not covered">            var interceptorArgs = {</span>
+                requestInfo: reqInfo,
+                db: this.db,
+                config: this.config,
+                passThruBackend: this.passThruBackend
+            };
+<span class="cstat-no" title="statement not covered">            var interceptorResponse = this.inMemDbService[reqMethodName](interceptorArgs);</span>
+<span class="cstat-no" title="statement not covered">            return this.addDelay(interceptorResponse);</span>
+        }
+        else <span class="cstat-no" title="statement not covered">if (reqInfo.collection) {</span>
+            // request is for a collection created by the InMemoryDbService
+<span class="cstat-no" title="statement not covered">            return this.addDelay(this.collectionHandler(reqInfo));</span>
+        }
+        else <span class="cstat-no" title="statement not covered">if (this.passThruBackend) {</span>
+            // Passes request thru to a "real" backend which returns an Observable&lt;Response&gt;
+            // BAIL OUT with this Observable&lt;Response&gt;
+<span class="cstat-no" title="statement not covered">            return this.passThruBackend.createConnection(req).response;</span>
+        }
+        else {
+            // can't handle this request
+<span class="cstat-no" title="statement not covered">            resOptions = createErrorResponse(req, STATUS.NOT_FOUND, "Collection '" + collectionName + "' not found");</span>
+<span class="cstat-no" title="statement not covered">            return this.addDelay(createObservableResponse(req, resOptions));</span>
+        }
+    };
+    /**
+     * Add configured delay to response observable unless delay === 0
+     */
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.addDelay = <span class="fstat-no" title="function not covered">function (response) {</span></span>
+<span class="cstat-no" title="statement not covered">        var delay = this.config.delay;</span>
+<span class="cstat-no" title="statement not covered">        return delay === 0 ? response : response.delay(delay || 500);</span>
+    };
+    /**
+     * Apply query/search parameters as a filter over the collection
+     * This impl only supports RegExp queries on string properties of the collection
+     * ANDs the conditions together
+     */
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.applyQuery = <span class="fstat-no" title="function not covered">function (collection, query) {</span></span>
+        // extract filtering conditions - {propertyName, RegExps) - from query/search parameters
+<span class="cstat-no" title="statement not covered">        var conditions = [];</span>
+<span class="cstat-no" title="statement not covered">        var caseSensitive = this.config.caseSensitiveSearch ? undefined : 'i';</span>
+<span class="cstat-no" title="statement not covered">        query.paramsMap.forEach(<span class="fstat-no" title="function not covered">function (value, name) {</span></span>
+<span class="cstat-no" title="statement not covered">            value.forEach(<span class="fstat-no" title="function not covered">function (v) {</span> <span class="cstat-no" title="statement not covered">return conditions.push({ name: name, rx: new RegExp(decodeURI(v), caseSensitive) }); </span>});</span>
+        });
+<span class="cstat-no" title="statement not covered">        var len = conditions.length;</span>
+<span class="cstat-no" title="statement not covered">        if (!len) {</span>
+<span class="cstat-no" title="statement not covered">            return collection;</span>
+        }
+        // AND the RegExp conditions
+<span class="cstat-no" title="statement not covered">        return collection.filter(<span class="fstat-no" title="function not covered">function (row) {</span></span>
+<span class="cstat-no" title="statement not covered">            var ok = true;</span>
+<span class="cstat-no" title="statement not covered">            var i = len;</span>
+<span class="cstat-no" title="statement not covered">            while (ok &amp;&amp; i) {</span>
+<span class="cstat-no" title="statement not covered">                i -= 1;</span>
+<span class="cstat-no" title="statement not covered">                var cond = conditions[i];</span>
+<span class="cstat-no" title="statement not covered">                ok = cond.rx.test(row[cond.name]);</span>
+            }
+<span class="cstat-no" title="statement not covered">            return ok;</span>
+        });
+    };
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.clone = <span class="fstat-no" title="function not covered">function (data) {</span></span>
+<span class="cstat-no" title="statement not covered">        return JSON.parse(JSON.stringify(data));</span>
+    };
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.collectionHandler = <span class="fstat-no" title="function not covered">function (reqInfo) {</span></span>
+<span class="cstat-no" title="statement not covered">        var _this = this;</span>
+<span class="cstat-no" title="statement not covered">        var req = reqInfo.req;</span>
+<span class="cstat-no" title="statement not covered">        return new rxjs_Observable.Observable(<span class="fstat-no" title="function not covered">function (responseObserver) {</span></span>
+<span class="cstat-no" title="statement not covered">            var resOptions;</span>
+<span class="cstat-no" title="statement not covered">            switch (req.method) {</span>
+                case _angular_http.RequestMethod.Get:
+<span class="cstat-no" title="statement not covered">                    resOptions = _this.get(reqInfo);</span>
+<span class="cstat-no" title="statement not covered">                    break;</span>
+                case _angular_http.RequestMethod.Post:
+<span class="cstat-no" title="statement not covered">                    resOptions = _this.post(reqInfo);</span>
+<span class="cstat-no" title="statement not covered">                    break;</span>
+                case _angular_http.RequestMethod.Put:
+<span class="cstat-no" title="statement not covered">                    resOptions = _this.put(reqInfo);</span>
+<span class="cstat-no" title="statement not covered">                    break;</span>
+                case _angular_http.RequestMethod.Delete:
+<span class="cstat-no" title="statement not covered">                    resOptions = _this.delete(reqInfo);</span>
+<span class="cstat-no" title="statement not covered">                    break;</span>
+                default:
+<span class="cstat-no" title="statement not covered">                    resOptions = createErrorResponse(req, STATUS.METHOD_NOT_ALLOWED, 'Method not allowed');</span>
+<span class="cstat-no" title="statement not covered">                    break;</span>
+            }
+            // If `inMemDbService.responseInterceptor` exists, let it morph the response options
+<span class="cstat-no" title="statement not covered">            if (_this.inMemDbService['responseInterceptor']) {</span>
+<span class="cstat-no" title="statement not covered">                resOptions = _this.inMemDbService['responseInterceptor'](resOptions, reqInfo);</span>
+            }
+<span class="cstat-no" title="statement not covered">            emitResponse(responseObserver, reqInfo.req, resOptions);</span>
+<span class="cstat-no" title="statement not covered">            return <span class="fstat-no" title="function not covered">function () {</span> }; </span>// unsubscribe function
+        });
+    };
+    /**
+     * When the last segment of the `base` path is "commands", the `collectionName` is the command
+     * Example URLs:
+     *   commands/resetdb   // Reset the "database" to its original state
+     *   commands/config (GET) // Return this service's config object
+     *   commands/config (!GET) // Update the config (e.g. delay)
+     *
+     * Commands are "hot", meaning they are always executed immediately
+     * whether or not someone subscribes to the returned observable
+     *
+     * Usage:
+     *   http.post('commands/resetdb', undefined);
+     *   http.get('commands/config');
+     *   http.post('commands/config', '{"delay":1000}');
+     */
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.commands = <span class="fstat-no" title="function not covered">function (reqInfo) {</span></span>
+<span class="cstat-no" title="statement not covered">        var command = reqInfo.collectionName.toLowerCase();</span>
+<span class="cstat-no" title="statement not covered">        var method = reqInfo.req.method;</span>
+<span class="cstat-no" title="statement not covered">        var resOptions;</span>
+<span class="cstat-no" title="statement not covered">        switch (command) {</span>
+            case 'resetdb':
+<span class="cstat-no" title="statement not covered">                this.resetDb();</span>
+<span class="cstat-no" title="statement not covered">                resOptions = new _angular_http.ResponseOptions({ status: STATUS.OK });</span>
+<span class="cstat-no" title="statement not covered">                break;</span>
+            case 'config':
+<span class="cstat-no" title="statement not covered">                if (method === _angular_http.RequestMethod.Get) {</span>
+<span class="cstat-no" title="statement not covered">                    resOptions = new _angular_http.ResponseOptions({</span>
+                        body: this.clone(this.config),
+                        status: STATUS.OK
+                    });
+                }
+                else {
+                    // Be nice ... any other method is a config update
+<span class="cstat-no" title="statement not covered">                    var body = JSON.parse(reqInfo.req.text() || '{}');</span>
+<span class="cstat-no" title="statement not covered">                    Object.assign(this.config, body);</span>
+<span class="cstat-no" title="statement not covered">                    this.setPassThruBackend();</span>
+<span class="cstat-no" title="statement not covered">                    resOptions = new _angular_http.ResponseOptions({ status: STATUS.NO_CONTENT });</span>
+                }
+<span class="cstat-no" title="statement not covered">                break;</span>
+            default:
+<span class="cstat-no" title="statement not covered">                resOptions = createErrorResponse(reqInfo.req, STATUS.INTERNAL_SERVER_ERROR, "Unknown command \"" + command + "\"");</span>
+        }
+<span class="cstat-no" title="statement not covered">        return createObservableResponse(reqInfo.req, resOptions);</span>
+    };
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.delete = <span class="fstat-no" title="function not covered">function (_a) {</span></span>
+<span class="cstat-no" title="statement not covered">        var id = _a.id, collection = _a.collection, collectionName = _a.collectionName, headers = _a.headers, req = _a.req;</span>
+<span class="cstat-no" title="statement not covered">        if (!id) {</span>
+<span class="cstat-no" title="statement not covered">            return createErrorResponse(req, STATUS.NOT_FOUND, "Missing \"" + collectionName + "\" id");</span>
+        }
+<span class="cstat-no" title="statement not covered">        var exists = this.removeById(collection, id);</span>
+<span class="cstat-no" title="statement not covered">        return new _angular_http.ResponseOptions({</span>
+            headers: headers,
+            status: (exists || !this.config.delete404) ? STATUS.NO_CONTENT : STATUS.NOT_FOUND
+        });
+    };
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.findById = <span class="fstat-no" title="function not covered">function (collection, id) {</span></span>
+<span class="cstat-no" title="statement not covered">        return collection.find(<span class="fstat-no" title="function not covered">function (item) {</span> <span class="cstat-no" title="statement not covered">return item.id === id; </span>});</span>
+    };
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.genId = <span class="fstat-no" title="function not covered">function (collection) {</span></span>
+        // assumes numeric ids
+<span class="cstat-no" title="statement not covered">        var maxId = 0;</span>
+<span class="cstat-no" title="statement not covered">        collection.reduce(<span class="fstat-no" title="function not covered">function (prev, item) {</span></span>
+<span class="cstat-no" title="statement not covered">            maxId = Math.max(maxId, typeof item.id === 'number' ? item.id : maxId);</span>
+        }, undefined);
+<span class="cstat-no" title="statement not covered">        return maxId + 1;</span>
+    };
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.get = <span class="fstat-no" title="function not covered">function (_a) {</span></span>
+<span class="cstat-no" title="statement not covered">        var id = _a.id, query = _a.query, collection = _a.collection, collectionName = _a.collectionName, headers = _a.headers, req = _a.req;</span>
+<span class="cstat-no" title="statement not covered">        var data = collection;</span>
+<span class="cstat-no" title="statement not covered">        if (id) {</span>
+<span class="cstat-no" title="statement not covered">            data = this.findById(collection, id);</span>
+        }
+        else <span class="cstat-no" title="statement not covered">if (query) {</span>
+<span class="cstat-no" title="statement not covered">            data = this.applyQuery(collection, query);</span>
+        }
+<span class="cstat-no" title="statement not covered">        if (!data) {</span>
+<span class="cstat-no" title="statement not covered">            return createErrorResponse(req, STATUS.NOT_FOUND, "'" + collectionName + "' with id='" + id + "' not found");</span>
+        }
+<span class="cstat-no" title="statement not covered">        return new _angular_http.ResponseOptions({</span>
+            body: { data: this.clone(data) },
+            headers: headers,
+            status: STATUS.OK
+        });
+    };
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.getLocation = <span class="fstat-no" title="function not covered">function (href) {</span></span>
+<span class="cstat-no" title="statement not covered">        if (!href.startsWith('http')) {</span>
+            // get the document iff running in browser
+<span class="cstat-no" title="statement not covered">            var doc = (typeof document === 'undefined') ? undefined : document;</span>
+            // add host info to url before parsing.  Use a fake host when not in browser.
+<span class="cstat-no" title="statement not covered">            var base = doc ? doc.location.protocol + '//' + doc.location.host : 'http://fake';</span>
+<span class="cstat-no" title="statement not covered">            href = href.startsWith('/') ? base + href : base + '/' + href;</span>
+        }
+<span class="cstat-no" title="statement not covered">        var uri = this.parseuri(href);</span>
+<span class="cstat-no" title="statement not covered">        var loc = {</span>
+            host: uri.host,
+            protocol: uri.protocol,
+            port: uri.port,
+            pathname: uri.path,
+            search: uri.query ? '?' + uri.query : ''
+        };
+<span class="cstat-no" title="statement not covered">        return loc;</span>
+    };
+    
+    // Adapted from parseuri package - http://blog.stevenlevithan.com/archives/parseuri
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.parseuri = <span class="fstat-no" title="function not covered">function (str) {</span></span>
+        // tslint:disable-next-line:max-line-length
+<span class="cstat-no" title="statement not covered">        var URL_REGEX = /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/;</span>
+<span class="cstat-no" title="statement not covered">        var key = ['source', 'protocol', 'authority', 'userInfo', 'user', 'password', 'host', 'port',</span>
+            'relative', 'path', 'directory', 'file', 'query', 'anchor'];
+<span class="cstat-no" title="statement not covered">        var m = URL_REGEX.exec(str);</span>
+<span class="cstat-no" title="statement not covered">        var uri = {};</span>
+<span class="cstat-no" title="statement not covered">        var i = 14;</span>
+<span class="cstat-no" title="statement not covered">        while (i--) {</span>
+<span class="cstat-no" title="statement not covered">            uri[key[i]] = m[i] || '';</span>
+        }
+<span class="cstat-no" title="statement not covered">        return uri;</span>
+    };
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.indexOf = <span class="fstat-no" title="function not covered">function (collection, id) {</span></span>
+<span class="cstat-no" title="statement not covered">        return collection.findIndex(<span class="fstat-no" title="function not covered">function (item) {</span> <span class="cstat-no" title="statement not covered">return item.id === id; </span>});</span>
+    };
+    // tries to parse id as number if collection item.id is a number.
+    // returns the original param id otherwise.
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.parseId = <span class="fstat-no" title="function not covered">function (collection, id) {</span></span>
+        // tslint:disable-next-line:triple-equals
+<span class="cstat-no" title="statement not covered">        if (!collection || id == undefined) {</span>
+<span class="cstat-no" title="statement not covered">            return undefined;</span>
+        }
+<span class="cstat-no" title="statement not covered">        var isNumberId = collection[0] &amp;&amp; typeof collection[0].id === 'number';</span>
+<span class="cstat-no" title="statement not covered">        if (isNumberId) {</span>
+<span class="cstat-no" title="statement not covered">            var idNum = parseFloat(id);</span>
+<span class="cstat-no" title="statement not covered">            return isNaN(idNum) ? id : idNum;</span>
+        }
+<span class="cstat-no" title="statement not covered">        return id;</span>
+    };
+    /**
+     * Parses the request URL into a `ParsedUrl` object.
+     * Parsing depends upon certain values of `config`: `apiBase`, `host`, and `urlRoot`.
+     *
+     * Configuring the `apiBase` yields the most interesting changes to `parseUrl` behavior:
+     *   When apiBase=undefined and url='http://localhost/api/collection/42'
+     *     {base: 'api/', collectionName: 'collection', id: '42', ...}
+     *   When apiBase='some/api/root/' and url='http://localhost/some/api/root/collection'
+     *     {base: 'some/api/root/', collectionName: 'collection', id: undefined, ...}
+     *   When apiBase='/' and url='http://localhost/collection'
+     *     {base: '/', collectionName: 'collection', id: undefined, ...}
+     *
+     * The actual api base segment values are ignored. Only the number of segments matters.
+     * The following api base strings are considered identical: 'a/b' ~ 'some/api/' ~ `two/segments'
+     *
+     * To replace this default method, assign your alternative to your InMemDbService['parseUrl']
+     */
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.parseUrl = <span class="fstat-no" title="function not covered">function (url) {</span></span>
+<span class="cstat-no" title="statement not covered">        try {</span>
+<span class="cstat-no" title="statement not covered">            var loc = this.getLocation(url);</span>
+<span class="cstat-no" title="statement not covered">            var drop = this.config.rootPath.length;</span>
+<span class="cstat-no" title="statement not covered">            var urlRoot = '';</span>
+<span class="cstat-no" title="statement not covered">            if (loc.host !== this.config.host) {</span>
+                // url for a server on a different host!
+                // assume it's collection is actually here too.
+<span class="cstat-no" title="statement not covered">                drop = 1; </span>// the leading slash
+<span class="cstat-no" title="statement not covered">                urlRoot = loc.protocol + '//' + loc.host + '/';</span>
+            }
+<span class="cstat-no" title="statement not covered">            var path = loc.pathname.substring(drop);</span>
+<span class="cstat-no" title="statement not covered">            var pathSegments = path.split('/');</span>
+<span class="cstat-no" title="statement not covered">            var segmentIx = 0;</span>
+            // apiBase: the front part of the path devoted to getting to the api route
+            // Assumes first path segment if no config.apiBase
+            // else ignores as many path segments as are in config.apiBase
+            // Does NOT care what the api base chars actually are.
+<span class="cstat-no" title="statement not covered">            var apiBase = void 0;</span>
+            // tslint:disable-next-line:triple-equals
+<span class="cstat-no" title="statement not covered">            if (this.config.apiBase == undefined) {</span>
+<span class="cstat-no" title="statement not covered">                apiBase = pathSegments[segmentIx++];</span>
+            }
+            else {
+<span class="cstat-no" title="statement not covered">                apiBase = removeTrailingSlash(this.config.apiBase.trim());</span>
+<span class="cstat-no" title="statement not covered">                if (apiBase) {</span>
+<span class="cstat-no" title="statement not covered">                    segmentIx = apiBase.split('/').length;</span>
+                }
+                else {
+<span class="cstat-no" title="statement not covered">                    segmentIx = 0; </span>// no api base at all; unwise but allowed.
+                }
+            }
+<span class="cstat-no" title="statement not covered">            apiBase = apiBase + '/';</span>
+<span class="cstat-no" title="statement not covered">            var collectionName = pathSegments[segmentIx++];</span>
+            // ignore anything after a '.' (e.g.,the "json" in "customers.json")
+<span class="cstat-no" title="statement not covered">            collectionName = collectionName &amp;&amp; collectionName.split('.')[0];</span>
+<span class="cstat-no" title="statement not covered">            var id = pathSegments[segmentIx++];</span>
+<span class="cstat-no" title="statement not covered">            var query = loc.search &amp;&amp; new _angular_http.URLSearchParams(loc.search.substr(1));</span>
+<span class="cstat-no" title="statement not covered">            var resourceUrl = urlRoot + apiBase + collectionName + '/';</span>
+<span class="cstat-no" title="statement not covered">            return { base: apiBase, collectionName: collectionName, id: id, query: query, resourceUrl: resourceUrl };</span>
+        }
+        catch (err) {
+<span class="cstat-no" title="statement not covered">            var msg = "unable to parse url '" + url + "'; original error: " + err.message;</span>
+<span class="cstat-no" title="statement not covered">            throw new Error(msg);</span>
+        }
+    };
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.post = <span class="fstat-no" title="function not covered">function (_a) {</span></span>
+<span class="cstat-no" title="statement not covered">        var collection = _a.collection, headers = _a.headers, id = _a.id, req = _a.req, resourceUrl = _a.resourceUrl;</span>
+<span class="cstat-no" title="statement not covered">        var item = JSON.parse(req.text());</span>
+        // tslint:disable-next-line:triple-equals
+<span class="cstat-no" title="statement not covered">        if (item.id == undefined) {</span>
+<span class="cstat-no" title="statement not covered">            item.id = id || this.genId(collection);</span>
+        }
+        // ignore the request id, if any. Alternatively,
+        // could reject request if id differs from item.id
+<span class="cstat-no" title="statement not covered">        id = item.id;</span>
+<span class="cstat-no" title="statement not covered">        var existingIx = this.indexOf(collection, id);</span>
+<span class="cstat-no" title="statement not covered">        var body = { data: this.clone(item) };</span>
+<span class="cstat-no" title="statement not covered">        if (existingIx &gt; -1) {</span>
+<span class="cstat-no" title="statement not covered">            collection[existingIx] = item;</span>
+<span class="cstat-no" title="statement not covered">            var res = this.config.post204 ?</span>
+                { headers: headers, status: STATUS.NO_CONTENT } :
+                { headers: headers, body: body, status: STATUS.OK }; // successful; return entity
+<span class="cstat-no" title="statement not covered">            return new _angular_http.ResponseOptions(res);</span>
+        }
+        else {
+<span class="cstat-no" title="statement not covered">            collection.push(item);</span>
+<span class="cstat-no" title="statement not covered">            headers.set('Location', resourceUrl + '/' + id);</span>
+<span class="cstat-no" title="statement not covered">            return new _angular_http.ResponseOptions({ headers: headers, body: body, status: STATUS.CREATED });</span>
+        }
+    };
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.put = <span class="fstat-no" title="function not covered">function (_a) {</span></span>
+<span class="cstat-no" title="statement not covered">        var id = _a.id, collection = _a.collection, collectionName = _a.collectionName, headers = _a.headers, req = _a.req;</span>
+<span class="cstat-no" title="statement not covered">        var item = JSON.parse(req.text());</span>
+        // tslint:disable-next-line:triple-equals
+<span class="cstat-no" title="statement not covered">        if (item.id == undefined) {</span>
+<span class="cstat-no" title="statement not covered">            return createErrorResponse(req, STATUS.NOT_FOUND, "Missing '" + collectionName + "' id");</span>
+        }
+        // tslint:disable-next-line:triple-equals
+<span class="cstat-no" title="statement not covered">        if (id != item.id) {</span>
+<span class="cstat-no" title="statement not covered">            return createErrorResponse(req, STATUS.BAD_REQUEST, "\"" + collectionName + "\" id does not match item.id");</span>
+        }
+<span class="cstat-no" title="statement not covered">        var existingIx = this.indexOf(collection, id);</span>
+<span class="cstat-no" title="statement not covered">        var body = { data: this.clone(item) };</span>
+<span class="cstat-no" title="statement not covered">        if (existingIx &gt; -1) {</span>
+<span class="cstat-no" title="statement not covered">            collection[existingIx] = item;</span>
+<span class="cstat-no" title="statement not covered">            var res = this.config.put204 ?</span>
+                { headers: headers, status: STATUS.NO_CONTENT } :
+                { headers: headers, body: body, status: STATUS.OK }; // successful; return entity
+<span class="cstat-no" title="statement not covered">            return new _angular_http.ResponseOptions(res);</span>
+        }
+        else {
+<span class="cstat-no" title="statement not covered">            collection.push(item);</span>
+<span class="cstat-no" title="statement not covered">            return new _angular_http.ResponseOptions({ headers: headers, body: body, status: STATUS.CREATED });</span>
+        }
+    };
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.removeById = <span class="fstat-no" title="function not covered">function (collection, id) {</span></span>
+<span class="cstat-no" title="statement not covered">        var ix = this.indexOf(collection, id);</span>
+<span class="cstat-no" title="statement not covered">        if (ix &gt; -1) {</span>
+<span class="cstat-no" title="statement not covered">            collection.splice(ix, 1);</span>
+<span class="cstat-no" title="statement not covered">            return true;</span>
+        }
+<span class="cstat-no" title="statement not covered">        return false;</span>
+    };
+    /**
+     * Reset the "database" to its original state
+     */
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.resetDb = <span class="fstat-no" title="function not covered">function () {</span></span>
+<span class="cstat-no" title="statement not covered">        this.db = this.inMemDbService.createDb();</span>
+    };
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.prototype.setPassThruBackend = <span class="fstat-no" title="function not covered">function () {</span></span>
+<span class="cstat-no" title="statement not covered">        this.passThruBackend = undefined;</span>
+<span class="cstat-no" title="statement not covered">        if (this.config.passThruUnknownUrl) {</span>
+<span class="cstat-no" title="statement not covered">            try {</span>
+                // copied from @angular/http/backends/xhr_backend
+<span class="cstat-no" title="statement not covered">                var browserXhr = this.injector.get(_angular_http.BrowserXhr);</span>
+<span class="cstat-no" title="statement not covered">                var baseResponseOptions = this.injector.get(_angular_http.ResponseOptions);</span>
+<span class="cstat-no" title="statement not covered">                var xsrfStrategy = this.injector.get(_angular_http.XSRFStrategy);</span>
+<span class="cstat-no" title="statement not covered">                this.passThruBackend = new _angular_http.XHRBackend(browserXhr, baseResponseOptions, xsrfStrategy);</span>
+            }
+            catch (ex) {
+<span class="cstat-no" title="statement not covered">                ex.message = 'Cannot create passThru404 backend; ' + (ex.message || '');</span>
+<span class="cstat-no" title="statement not covered">                throw ex;</span>
+            }
+        }
+    };
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.decorators = [</span>
+        { type: _angular_core.Injectable },
+    ];
+    /** @nocollapse */
+<span class="cstat-no" title="statement not covered">    InMemoryBackendService.ctorParameters = <span class="fstat-no" title="function not covered">function () {</span> <span class="cstat-no" title="statement not covered">return [</span></span>
+        { type: _angular_core.Injector, },
+        { type: InMemoryDbService, },
+        { type: InMemoryBackendConfigArgs, decorators: [{ type: _angular_core.Inject, args: [InMemoryBackendConfig,] }, { type: _angular_core.Optional },] },
+    ]; };
+<span class="cstat-no" title="statement not covered">    return InMemoryBackendService;</span>
+}());
+&nbsp;
+// AoT requires factory to be exported
+<span class="fstat-no" title="function not covered">function inMemoryBackendServiceFactory(injector, dbService, options) {</span>
+<span class="cstat-no" title="statement not covered">    var backend = new InMemoryBackendService(injector, dbService, options);</span>
+<span class="cstat-no" title="statement not covered">    return backend;</span>
+}
+<span class="cstat-no" title="statement not covered">var InMemoryWebApiModule = (<span class="fstat-no" title="function not covered">function () {</span></span>
+<span class="fstat-no" title="function not covered">    function InMemoryWebApiModule() {</span>
+    }
+    /**
+    *  Prepare in-memory-web-api in the root/boot application module
+    *  with class that implements InMemoryDbService and creates an in-memory database.
+    *
+    * @param {Type} dbCreator - Class that creates seed data for in-memory database. Must implement InMemoryDbService.
+    * @param {InMemoryBackendConfigArgs} [options]
+    *
+    * @example
+    * InMemoryWebApiModule.forRoot(dbCreator);
+    * InMemoryWebApiModule.forRoot(dbCreator, {useValue: {delay:600}});
+    */
+<span class="cstat-no" title="statement not covered">    InMemoryWebApiModule.forRoot = <span class="fstat-no" title="function not covered">function (dbCreator, options) {</span></span>
+<span class="cstat-no" title="statement not covered">        return {</span>
+            ngModule: InMemoryWebApiModule,
+            providers: [
+                { provide: InMemoryDbService, useClass: dbCreator },
+                { provide: InMemoryBackendConfig, useValue: options },
+            ]
+        };
+    };
+<span class="cstat-no" title="statement not covered">    InMemoryWebApiModule.decorators = [</span>
+        { type: _angular_core.NgModule, args: [{
+                    // Must useFactory for AoT
+                    // https://github.com/angular/angular/issues/11178
+                    providers: [{ provide: _angular_http.XHRBackend,
+                            useFactory: inMemoryBackendServiceFactory,
+                            deps: [_angular_core.Injector, InMemoryDbService, InMemoryBackendConfig] }]
+                },] },
+    ];
+    /** @nocollapse */
+<span class="cstat-no" title="statement not covered">    InMemoryWebApiModule.ctorParameters = <span class="fstat-no" title="function not covered">function () {</span> <span class="cstat-no" title="statement not covered">return []; </span>};</span>
+<span class="cstat-no" title="statement not covered">    return InMemoryWebApiModule;</span>
+}());
+&nbsp;
+<span class="cstat-no" title="statement not covered">exports.STATUS = STATUS;</span>
+<span class="cstat-no" title="statement not covered">exports.STATUS_CODE_INFO = STATUS_CODE_INFO;</span>
+<span class="cstat-no" title="statement not covered">exports.createErrorResponse = createErrorResponse;</span>
+<span class="cstat-no" title="statement not covered">exports.createObservableResponse = createObservableResponse;</span>
+<span class="cstat-no" title="statement not covered">exports.emitResponse = emitResponse;</span>
+<span class="cstat-no" title="statement not covered">exports.InMemoryDbService = InMemoryDbService;</span>
+<span class="cstat-no" title="statement not covered">exports.InMemoryBackendConfigArgs = InMemoryBackendConfigArgs;</span>
+<span class="cstat-no" title="statement not covered">exports.removeTrailingSlash = removeTrailingSlash;</span>
+<span class="cstat-no" title="statement not covered">exports.InMemoryBackendConfig = InMemoryBackendConfig;</span>
+<span class="cstat-no" title="statement not covered">exports.isSuccess = isSuccess;</span>
+<span class="cstat-no" title="statement not covered">exports.setStatusText = setStatusText;</span>
+<span class="cstat-no" title="statement not covered">exports.InMemoryBackendService = InMemoryBackendService;</span>
+<span class="cstat-no" title="statement not covered">exports.inMemoryBackendServiceFactory = inMemoryBackendServiceFactory;</span>
+<span class="cstat-no" title="statement not covered">exports.InMemoryWebApiModule = InMemoryWebApiModule;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered">Object.defineProperty(exports, '__esModule', { value: true });</span>
+&nbsp;
+})));
+&nbsp;
+&nbsp;</pre></td></tr>
+</tbody></table></pre>
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Fri Apr 21 2017 12:09:00 GMT+0000 (UTC)</div>
+</div>
+
+
+</body></html>
